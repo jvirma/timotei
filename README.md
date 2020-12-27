@@ -1,5 +1,5 @@
 # TIMOTEI
-"object-oriented programming" course final assignment (Java, JavaFX, MySQL) 
+"Object-oriented programming" course final assignment (Java, JavaFX, MySQL) 
 
 **Presentation (in finnish)**:
 https://youtu.be/ipwriK7ufeg
