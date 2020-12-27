@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harjoitustyo.FXMLDataControlController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="546.0" minWidth="10.0" prefWidth="396.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="150.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="107.0" minHeight="0.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="227.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="227.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="227.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SmartPost - Lisäys">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Text>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisää SmartPost järjestyksessä: Nimi, leveys, pituus, kaupunki, katu, postinro, aukiolot">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Text>
+                     </children>
+                  </GridPane>
+                  <TextField fx:id="newSmartPostInput" prefHeight="25.0" prefWidth="342.0" promptText="Nimi, leveys, pituus, kaupunki, katu, postinro, aukiolot" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#addSmartPostAction" prefHeight="25.0" prefWidth="126.0" text="Lisää" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SmartPost - Poisto" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="comboCitys" onAction="#listSmartPostAction" prefHeight="25.0" prefWidth="293.0" promptText="Kaupunki" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="comboSmartPosts" prefHeight="25.0" prefWidth="293.0" promptText="SmartPost" GridPane.rowIndex="5" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paketti - Poisto" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="comboPackages" prefHeight="25.0" prefWidth="294.0" promptText="Paketti" GridPane.rowIndex="7" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tavara - Poisto" GridPane.rowIndex="8">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="comboItems" prefHeight="25.0" prefWidth="295.0" promptText="Tavara" GridPane.rowIndex="9" />
+                  <Button mnemonicParsing="false" onAction="#removeSmartPostAction" prefHeight="25.0" prefWidth="125.0" text="Poista SmartPost" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#removePackage" prefHeight="25.0" prefWidth="126.0" text="Poista Paketti" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Button mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="127.0" text="Poista Tavara" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <Pane prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </top>
+         <left>
+            <Pane prefHeight="369.0" prefWidth="27.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="369.0" prefWidth="27.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <Pane prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

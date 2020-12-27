@@ -1,0 +1,15 @@
+Loki:
+
+[2020.12.27 14:37:44] -- TIMOTEI käynnistyi
+[2020.12.27 14:37:53] -- TIMOTEI käynnistyi
+[2020.12.27 14:37:53] -- Luotiin uusi tavara [Muumimuki kokoelma]
+[2020.12.27 14:37:53] -- Luotiin uusi tavara [Virallinen EM-kisapallo]
+[2020.12.27 14:37:53] -- Luotiin uusi tavara [Ikea-sohva]
+[2020.12.27 14:37:53] -- Luotiin uusi tavara [Pesäpallomaila]
+[2020.12.27 14:38:25] -- TIMOTEI sulkeutui
+
+Varasto tilanne:
+
+Paketin ID / Luokka / Esine / Lähtöpaikka / Saapumispaikka / Etäisyys
+
+

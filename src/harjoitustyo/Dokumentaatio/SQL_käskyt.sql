@@ -1,0 +1,80 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE "SmartPost" (
+"ID" INTEGER ROWID NOT NULL UNIQUE PRIMARY KEY,
+"Name" VARCHAR(32) NOT NULL,
+"Latitude" VARCHAR(12) NOT NULL,
+"Longitude" VARCHAR(12) NOT NULL,
+"Road" VARCHAR(32) NOT NULL,
+"Postcode" VARCHAR(8) NOT NULL,
+"OpeningTime" VARCHAR(64) NOT NULL,
+
+FOREIGN KEY("Postcode") REFERENCES "PostOffice"("Postcode")
+);
+
+CREATE TABLE "PostOffice" (
+
+"Postcode" VARCHAR(8) NOT NULL PRIMARY KEY,
+"City" VARCHAR(32) NOT NULL,
+
+FOREIGN KEY("Postcode") REFERENCES "SmartPost"("Postcode")
+);
+
+CREATE TABLE "DeliveredPackage" (
+"PackageID" INTEGER ROWID NOT NULL PRIMARY KEY,
+"Class" INTEGER NOT NULL,
+"ItemID" INTEGER NOT NULL,
+"StartID" INTEGER NOT NULL,
+"DestinationID" INTEGER NOT NULL,
+"Distance" REAL NOT NULL,
+"Broken" INTEGER NOT NULL,
+
+FOREIGN KEY("ItemID") REFERENCES "Item"("ItemID"),
+FOREIGN KEY("StartID") REFERENCES "SmartPost"("ID"),
+FOREIGN KEY("DestinationID") REFERENCES "SmartPost"("ID"),
+
+CHECK("Broken" IN (0,1))
+
+);
+
+CREATE TABLE "PackageCreated" (
+"PackageID" INTEGER ROWID NOT NULL PRIMARY KEY,
+"Class" INTEGER NOT NULL,
+"ItemID" INTEGER NOT NULL,
+"StartID" INTEGER NOT NULL,
+"DestinationID" INTEGER NOT NULL,
+"Distance" REAL NOT NULL,
+
+FOREIGN KEY("ItemID") REFERENCES "Item"("ItemID"),
+FOREIGN KEY("StartID") REFERENCES "SmartPost"("ID"),
+FOREIGN KEY("DestinationID") REFERENCES "SmartPost"("ID"),
+
+CHECK("Class" IN (1, 2, 3) AND "Distance" > 0 AND "ItemID" > 0 AND "StartID" > 0 AND "DestinationID" > 0)
+);
+
+CREATE TABLE "Log" (
+"LogID" INTEGER ROWID NOT NULL PRIMARY KEY,
+"Time" VARCHAR(32) NOT NULL,
+"Action" VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE "Package" (
+"Class" INTEGER ROWID NOT NULL UNIQUE PRIMARY KEY,
+"Speed" INTEGER NOT NULL,
+"WeightMax" REAL NOT NULL,
+"SizeMax" REAL NOT NULL,
+"DistanceMax" REAL NOT NULL,
+
+CHECK("Speed" > 0 AND "DistanceMax" > 0 AND "SizeMax" > 0 AND "WeightMax" > 0 AND "Class" IN (1, 2, 3))
+);
+
+CREATE TABLE "Item" (
+"ItemID" INTEGER ROWID NOT NULL UNIQUE PRIMARY KEY,
+"Name" VARCHAR(32) NOT NULL,
+"Weight" INTEGER NOT NULL,
+"ItemSize" INTEGER NOT NULL,
+"Breakable" INTEGER NOT NULL,  
+
+CHECK("ItemSize" > 0 AND "Weight" > 0 AND "Breakable" IN (0,1))
+);
+

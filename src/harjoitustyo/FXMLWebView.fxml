@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="771.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harjoitustyo.FXMLWebViewController">
+   <children>
+      <TabPane prefHeight="656.0" prefWidth="760.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Kartta">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="684.0" prefWidth="760.0">
+                     <children>
+                        <WebView fx:id="webview" layoutX="8.0" layoutY="102.0" prefHeight="491.0" prefWidth="826.0" AnchorPane.bottomAnchor="149.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="102.0" />
+                        <BorderPane layoutX="4.0" layoutY="450.0" prefHeight="163.0" prefWidth="754.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="450.0">
+                           <right>
+                              <Pane prefHeight="375.0" prefWidth="27.0" BorderPane.alignment="CENTER" />
+                           </right>
+                           <left>
+                              <Pane prefHeight="375.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+                           </left>
+                           <top>
+                              <Pane prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                           </top>
+                           <bottom>
+                              <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="NEVER" maxWidth="379.0" minWidth="10.0" prefWidth="281.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="0.0" prefWidth="86.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.0" minWidth="10.0" prefWidth="333.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints fillHeight="false" maxHeight="34.5" minHeight="-Infinity" percentHeight="3.0" prefHeight="0.0" vgrow="NEVER" />
+                                  <RowConstraints fillHeight="false" maxHeight="50.36" minHeight="-Infinity" prefHeight="32.14" vgrow="NEVER" />
+                                  <RowConstraints fillHeight="false" maxHeight="26.36" minHeight="-Infinity" percentHeight="22.0" prefHeight="26.36" vgrow="NEVER" />
+                                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" percentHeight="22.0" prefHeight="29.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" percentHeight="22.0" prefHeight="9.36" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" percentHeight="6.0" prefHeight="22.0" vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text fill="#e67300" fontSmoothingType="LCD" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="  Lisää kaupungin SmartPost automaatit kartalle" textAlignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <GridPane GridPane.rowIndex="2">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="3.0" prefWidth="27.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="200.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="0.0" prefWidth="81.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="219.0" promptText="Kaupunki" GridPane.columnIndex="1" />
+                                          <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#drawMarker" prefHeight="25.0" prefWidth="135.0" text="Lisää" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <Button mnemonicParsing="false" onAction="#createPackage" prefHeight="25.0" prefWidth="119.0" text="Luo paketti" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="comboPackages" prefHeight="25.0" prefWidth="314.0" promptText="Paketit" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <GridPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="151.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="173.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#sendPackage" prefHeight="25.0" prefWidth="163.0" text="Lähetä paketti" />
+                                          <Button mnemonicParsing="false" onAction="#clearRoadAction" prefHeight="25.0" prefWidth="147.0" text="Tyhjennä kartta" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="4">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="18.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="263.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#editDataAction" prefHeight="25.0" prefWidth="189.0" text="Datan hallinta" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Text fill="#e67300" fontSmoothingType="LCD" layoutX="10.0" layoutY="31.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Pakettien luonti ja lähetys" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                           </bottom>
+                        </BorderPane>
+                        <ImageView fitHeight="69.0" fitWidth="200.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@LogoMakr.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#e67300" layoutX="215.0" layoutY="51.0" rotate="7.3" strokeType="OUTSIDE" strokeWidth="0.0" text="SmartPOST" wrappingWidth="164.2658462524414">
+                           <font>
+                              <Font name="Berlin Sans FB" size="20.0" />
+                           </font>
+                        </Text>
+                        <Pane fx:id="startMenu" layoutX="8.0" layoutY="109.0" prefHeight="429.0" prefWidth="725.0">
+                           <children>
+                              <AnchorPane prefHeight="623.0" prefWidth="736.0">
+                                 <children>
+                                    <Button layoutX="290.0" layoutY="222.0" mnemonicParsing="false" onAction="#clearDatabaseAction" prefHeight="25.0" prefWidth="67.0" text="Kyllä" />
+                                    <Text fill="#e67300" layoutX="221.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aloitetaanko tyhjästä tietokannasta? " wrappingWidth="380.537109375">
+                                       <font>
+                                          <Font name="Arial Black" size="18.0" />
+                                       </font></Text>
+                                    <Button layoutX="448.0" layoutY="222.0" mnemonicParsing="false" onAction="#continueAction" prefHeight="25.0" prefWidth="69.0" text="Ei" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#updateLogAction" text="Loki">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listViewLog" layoutX="14.0" layoutY="22.0" prefHeight="691.0" prefWidth="808.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#PackageUpdateAction" text="Paketit">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="44.0" prefHeight="689.0" prefWidth="760.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Paketit varastossa">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketteja yhteensä:" wrappingWidth="395.12109375">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="PackageCounterText" layoutX="314.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                          <TextArea fx:id="PackagesTextArea" editable="false" layoutX="24.0" layoutY="61.0" prefHeight="556.0" prefWidth="715.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="61.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Lähetetyt paketit">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketteja yhteensä:" wrappingWidth="395.12109375">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="DeliveredPackageCountText" layoutX="316.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                          <TextArea fx:id="DeliveredPackagesTextArea" editable="false" layoutX="25.0" layoutY="53.0" prefHeight="621.0" prefWidth="709.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="61.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#statisticAction" text="Statistiikka">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="49.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ohjelma ollut käynnissä:" />
+                        <Text fx:id="timer" layoutX="298.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                        <Text layoutX="49.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketteja perille ehjänä:" />
+                        <Text layoutX="49.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketit kulkeneet kilometrejä:" />
+                        <Text fx:id="textStatistic" layoutX="290.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
+                        <Text fx:id="textTotalKms" layoutX="298.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

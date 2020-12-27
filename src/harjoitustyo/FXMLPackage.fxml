@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harjoitustyo.FXMLPackageController">
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="431.0" prefWidth="607.0">
+         <center>
+            <GridPane prefHeight="419.0" prefWidth="570.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="277.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="293.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="115.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="241.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="305.0" minHeight="6.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="9.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="8.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="6.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Luo paketti">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valitse esine:" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="comboItems" onAction="#comboItemAction" prefHeight="25.0" prefWidth="274.0" promptText="Esineet" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TAI" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Luo uusi esine:" GridPane.rowIndex="4" />
+                  <TextField fx:id="UserItemSize" prefHeight="25.0" prefWidth="277.0" promptText="Koko      cm3" GridPane.rowIndex="6" />
+                  <TextField fx:id="UserItemWeight" promptText="Massa    kg" GridPane.rowIndex="7" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valitse pakettiluokka" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Text>
+                  <RadioButton fx:id="firstClassButton" mnemonicParsing="false" onAction="#firstButtonAction" text="1. Luokka" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="secondClassButton" mnemonicParsing="false" onAction="#secondButtonAction" text="2. Luokka" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <RadioButton fx:id="thirdClassButton" mnemonicParsing="false" onAction="#thirdButtonAction" text="3. Luokka" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#infoAction" text="Infoa luokista" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paketin lähetystiedot:" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="startCity" onAction="#startList" prefWidth="150.0" promptText="Lähtökaupunki" GridPane.rowIndex="9" />
+                  <ComboBox fx:id="comboStartPosts" prefWidth="150.0" promptText="Automaatti" GridPane.rowIndex="10" />
+                  <ComboBox fx:id="destCity" onAction="#destList" prefWidth="150.0" promptText="Kohdekaupunki" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <ComboBox fx:id="comboDestPosts" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="12">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelAction" text="Peruuta" />
+                        <Button mnemonicParsing="false" onAction="#createButtonAction" text="Luo paketti" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="3.0" prefWidth="8.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="277.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox mnemonicParsing="false" onAction="#featureAction" prefHeight="18.0" prefWidth="117.0" text="Särkyvää" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TextField fx:id="UserItemName" promptText="Nimi" GridPane.rowIndex="5" />
+                  <Text fx:id="warning" fill="#dd8f1a" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#clearCombo" prefHeight="21.0" prefWidth="135.0" text="Tyhjennä valinta" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <ImageView fx:id="iv1" fitHeight="120.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                     <image>
+                        <Image url="@muumimukit.jpg" />
+                     </image></ImageView>
+                  <Text fx:id="textImage" strokeType="OUTSIDE" strokeWidth="0.0" text="Kuva:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Text>
+                  <ImageView fx:id="iv2" fitHeight="178.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@ball.jpg" />
+                     </image></ImageView>
+                  <ImageView fx:id="iv3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@sofa.JPG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="iv4" fitHeight="145.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@maila.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <Pane prefHeight="21.0" prefWidth="607.0" BorderPane.alignment="CENTER" />
+         </top>
+         <left>
+            <Pane prefHeight="379.0" prefWidth="21.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="379.0" prefWidth="16.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <Pane prefHeight="27.0" prefWidth="607.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
